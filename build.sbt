@@ -52,7 +52,9 @@ lazy val service = project
 
     libraryDependencies ++= Seq(
       "io.nats" % "jnats" % "2.16.14",
-      "com.google.code.gson" % "gson" % "2.10.1"
+      "com.google.code.gson" % "gson" % "2.10.1",
+      "org.typelevel" %% "cats-effect" % "3.5.1",
+      "io.github.gonzih" %% "cats-nats" % "0.1.0"
     )
   )
   .dependsOn(common)
