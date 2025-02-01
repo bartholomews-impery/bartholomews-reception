@@ -9,7 +9,7 @@ import java.util.UUID
 
 class CreateOrder(orderRepository: OrderRepository) extends CreateOrderUseCase:
   override def execute(createOrderRequest: CreateOrderRequest): OrderCreatedResponse =
-    val order: Order = Order.create(createOrderRequest.orderId)
+    val order: Order = Order.asCreated(createOrderRequest.orderId)
     orderRepository.save(order)
     
     OrderCreatedResponse(order.orderId)
