@@ -3,10 +3,10 @@ services:
   nats:
     image: nats
     ports:
-      - "4222:4222"
-      - "8222:8222"
+      - '4222:4222'
+      - '8222:8222'
     command:
-      - "--js"
+      - '--js'
     networks:
       - local
 
@@ -27,18 +27,18 @@ services:
     image: prom/prometheus
     container_name: prometheus
     volumes:
-      - "./backing-services/prometheus.yml:/etc/prometheus/prometheus.yml"
+      - ./configuration/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
       - local
     ports:
-      - "9090:9090"
+      - '9090:9090'
     restart: always
 
   grafana:
     image: grafana/grafana
     container_name: grafana
     volumes:
-      - ./backing-services/datasources.yml:/etc/grafana/provisioning/datasources.yml
+      - ./configuration/datasources.yml:/etc/grafana/provisioning/datasources.yml
     networks:
       - local
     ports:
